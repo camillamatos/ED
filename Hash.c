@@ -128,7 +128,6 @@ Elemento* ordenaNome(Lista *lista, char *nome){
 		}else if (strncmp(nome, elemento->dado, tam) <0){
 			return elemento->prev;
 		}
-		
 		elemento = elemento->next;	
 	}
 	return lista->tail;
@@ -180,7 +179,6 @@ void imprimirHash(Hash *hash){
 		total += aux->size;
 		aux = aux->next;
 	}
-	
 	printf("Total de nomes: %i \n\n", total);
 }
 
@@ -231,7 +229,6 @@ void removerNome(Lista *lista, Elemento *antigo){
 				antigo->next->prev = antigo->prev;
 			}
 		}
-		
 		free(antigo);
 		lista->size--;
 	}
@@ -248,7 +245,6 @@ void abrirTxt(hash){
 		Lista *lista = encontraChave(hash, key);
 		Elemento *pivo = ordenaNome(lista, linha);
 		inserirNomeLista(lista, pivo, linha);
-		
 	}
 }
 
@@ -283,7 +279,6 @@ int main(){
 				system("cls");
 				printf("%s inserido com sucesso! \n", nome);
 			}
-			
 		}else if(op==2){
 			printf("Qual nome deseja remover?");
 			scanf("%s", &nome);
@@ -298,8 +293,6 @@ int main(){
 				removerNome(lista, pivo);
 				printf("%s removido com sucesso! \n", nome);
 			}
-			
-			
 		}else if(op==3){
 			printf("Deseja imprimir uma chave especifica (digite o valor da chave [0 - 9]) ou todas (digite qualquer outro numero)? ");
 			scanf("%i", &key);
@@ -309,8 +302,7 @@ int main(){
 				imprimirHashEspec(hash, key);
 			}else{
 				imprimirHash(hash);
-			}
-				
+			}	
 		}else if(op==4){
 			printf("Qual nome deseja buscar?");
 			scanf("%s", &nome);
@@ -324,7 +316,6 @@ int main(){
 			}else{
 				printf("%s foi encontrado na chave %i!\n", nome, key);
 			}
-			
 		}else if(op==5){
 			system("cls");
 			printf("Programa finalizado!");
@@ -333,7 +324,6 @@ int main(){
 			printf("Opcao invalida!");
 		}
 	}
-	
 }
 
 
